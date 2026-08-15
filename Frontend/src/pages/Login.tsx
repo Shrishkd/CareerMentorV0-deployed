@@ -10,6 +10,8 @@ import { useToast } from "@/hooks/use-toast";
 import { Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { supabase } from "@/lib/supabaseClient";
 
+const DEMO_CREDENTIALS = { email: "demo@test.com", password: "demo@123" };
+
 export const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -21,6 +23,10 @@ export const Login = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const fillDemoCredentials = () => {
+    setFormData(DEMO_CREDENTIALS);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -127,6 +133,24 @@ export const Login = () => {
                 {isLoading ? "Signing in..." : "Sign In"}
               </Button>
             </motion.div>
+
+            {/* Demo credentials */}
+            <motion.button
+              type="button"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.75 }}
+              onClick={fillDemoCredentials}
+              className="w-full rounded-lg border border-dashed border-border/60 bg-background/30 p-3 text-left text-sm transition-colors hover:border-primary/50 hover:bg-primary/5"
+            >
+              <p className="mb-1.5 text-xs font-medium text-muted-foreground">Demo credentials — click to autofill</p>
+              <p className="text-foreground">
+                <span className="text-muted-foreground">Email:</span> {DEMO_CREDENTIALS.email}
+              </p>
+              <p className="text-foreground">
+                <span className="text-muted-foreground">Password:</span> {DEMO_CREDENTIALS.password}
+              </p>
+            </motion.button>
           </form>
 
           {/* Footer */}
