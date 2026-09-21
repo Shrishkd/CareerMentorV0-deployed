@@ -227,7 +227,7 @@ export const Header = ({ showProfile = true, className = "" }: HeaderProps) => {
                         className="w-full justify-start h-10 px-3 text-destructive hover:text-destructive hover:bg-destructive/10"
                         onClick={async () => {
                           await signOut();
-                          navigate("/login");
+                          navigate("/");
                         }}
                       >
                         <LogOut className="h-4 w-4 mr-3" />

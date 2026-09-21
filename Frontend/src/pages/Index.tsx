@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, CheckCircle, Star, StarHalf } from "lucide-react";
+import { ArrowRight, Star } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import { useCallback, useEffect, useImperativeHandle, useRef, useState, forwardRef } from "react";
@@ -447,19 +447,11 @@ const Index = () => {
             >
               <Button 
                 size="lg"
-                onClick={() => navigate("/signup")}
+                onClick={() => navigate("/dashboard")}
                 className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-glow px-8 py-4 text-lg"
               >
-                Start Free Trial
+                Get Started
                 <ArrowRight className="h-5 w-5 ml-2" />
-              </Button>
-              <Button 
-                variant="secondary" 
-                size="lg"
-                onClick={() => navigate("/login")}
-                className="bg-white/20 backdrop-blur-sm text-white border-white/30 hover:bg-white/30 px-8 py-4 text-lg"
-              >
-                Sign In
               </Button>
             </motion.div>
           </motion.div>
@@ -567,16 +559,12 @@ const Index = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
               <Button 
                 size="lg"
-                onClick={() => navigate("/signup")}
+                onClick={() => navigate("/dashboard")}
                 className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 px-8 py-4 text-lg"
               >
                 Get Started Now
                 <ArrowRight className="h-5 w-5 ml-2" />
               </Button>
-              <div className="flex items-center space-x-2 text-sm opacity-75">
-                <CheckCircle className="h-4 w-4" />
-                <span>No credit card required</span>
-              </div>
             </div>
           </motion.div>
         </div>

@@ -11,15 +11,11 @@ import {
   Clock,
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { useUserStats } from "@/hooks/useUserStats";
 import Header from "@/components/Header";
 
-// Skeleton placeholder
-const SkeletonBox = ({ className }: { className: string }) => (
-  <div className={`animate-pulse bg-muted rounded-lg ${className}`} />
-);
+
 
 const getStatsData = (userStats: any, statsLoading: boolean) => [
   {
@@ -79,34 +75,11 @@ const suggestedCourses = [
 
 export const Dashboard = () => {
   const navigate = useNavigate();
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const {
     stats: userStats,
     loading: statsLoading,
-    error: statsError,
   } = useUserStats(user ? user.id : null);
-
-  // Redirect to login if not authenticated
-  useEffect(() => {
-    if (!loading && !user) {
-      navigate("/login");
-    }
-  }, [user, loading, navigate]);
-
-  // Skeleton layout while auth is loading
-  if (loading) {
-    return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center">
-        <SkeletonBox className="h-32 w-32 mb-4" />
-        <p className="text-muted-foreground">Loading your dashboard...</p>
-      </div>
-    );
-  }
-
-  // Don't render if not authenticated
-  if (!user) {
-    return null;
-  }
 
   const handleStartInterview = () => navigate("/resume-upload");
   const handleATSCheck = () => navigate("/ats-checker");
