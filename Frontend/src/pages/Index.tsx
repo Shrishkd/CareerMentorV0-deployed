@@ -95,7 +95,7 @@ const feedbacks = [
       "Personalized technical and HR questions made preparation focused. The feedback report strengthened my communication skills."
   },
   {
-    name: "Aayushi Shrivastav",
+    name: "Aarchi Jha",
     role: "Backend Engineer",
     avatar: "/avatars/Aayushi.jpg",
     text:
