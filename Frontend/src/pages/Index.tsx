@@ -395,7 +395,7 @@ const FeedbackCarousel = forwardRef<FeedbackCarouselHandle, object>(function Fee
 
 const Index = () => {
   const navigate = useNavigate();
-  const feedbackCarouselRef = useRef<FeedbackCarouselHandle>(null);
+
 
   return (
     <div className="min-h-screen bg-background">
@@ -545,67 +545,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Founder Vlog Section */}
-      <section className="py-20 container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="relative rounded-[2rem] overflow-hidden min-h-[550px] flex items-center shadow-2xl"
-        >
-          {/* Background Image with Grayscale */}
-          <div className="absolute inset-0">
-            <img 
-              src="https://res.cloudinary.com/dks0vhj0j/image/upload/v1771743950/2024-02-29-09-14-23-588_locxin.jpg" 
-              alt="Founder" 
-              className="w-full h-full object-cover grayscale"
-            />
-            {/* Gradient Overlay for Text Readability */}
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/95 to-transparent opacity-100" />
-          </div>
 
-          {/* Content */}
-          <div className="relative z-10 max-w-2xl p-8 md:p-16">
-            <Badge variant="outline" className="mb-6 border-primary text-primary bg-primary/10 px-4 py-1 text-xs tracking-widest uppercase">
-              Founder Vlog
-            </Badge>
-            
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
-              Why I Built Career Mentor — <br/>And Why It Matters.
-            </h2>
-            
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed max-w-lg">
-              From personal struggles in the job market to building a platform that empowers thousands. 
-              Discover the story behind our mission to democratize interview preparation and help you succeed.
-            </p>
-
-            <Button 
-              size="lg"
-              onClick={() => navigate("/vlog")}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg group rounded-full px-8"
-            >
-              Watch My Journey
-              <ArrowRight className="h-5 w-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
-            </Button>
-          </div>
-        </motion.div>
-      </section>
-
-      <section className="py-16 bg-muted/10">
-        <div className="container mx-auto px-6">
-          <div
-            onMouseEnter={() => feedbackCarouselRef.current?.pause()}
-            onMouseLeave={() => feedbackCarouselRef.current?.scheduleResumeAfterInactivity()}
-          >
-            <div className="text-center mb-8">
-              <h3 className="text-3xl font-bold">what they says..</h3>
-            </div>
-
-            <FeedbackCarousel ref={feedbackCarouselRef} />
-          </div>
-        </div>
-      </section>
 
       <section className="py-20 bg-gradient-secondary">
         <div className="container mx-auto px-6 text-center">
